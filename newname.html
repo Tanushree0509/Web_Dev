@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decorative Name</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .name {
+      font-size: 70px;
+      font-weight: bold;
+      color: #FF6347;
+      text-transform: uppercase;
+      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2),
+                   -4px -4px 6px rgba(0, 0, 0, 0.2);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="name">John Doe</div>
+</body>
+</html>
+

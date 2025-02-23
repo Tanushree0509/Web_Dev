@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">import { useState } from "react";
+    import { Card, CardContent } from "@/components/ui/card";
+    import { Button } from "@/components/ui/button";
+    import { motion } from "framer-motion";
+    import { Image } from "lucide-react";
+    
+    const lessons = [
+      "Invest in Yourself: Learn new skills, read, and grow.",
+      "Health is Wealth: Take care of your body and mind.",
+      "Financial Literacy: Save, invest, and avoid debt.",
+      "Quality Over Quantity: Choose relationships wisely.",
+      "Failures Teach the Best Lessons: Keep moving forward.",
+      "Comparison is the Thief of Joy: Focus on your journey.",
+      "Time is Precious: Use it wisely.",
+      "Confidence is Key: Believe in yourself.",
+      "Network Smartly: Connections matter.",
+      "Enjoy the Process: Don’t rush life."
+    ];
+    
+    export default function LessonsIn20s() {
+      const [index, setIndex] = useState(0);
+    
+      const nextLesson = () => {
+        setIndex((prevIndex) => (prevIndex + 1) % lessons.length);
+      };
+    
+      return (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 to-blue-500 p-6">
+          <motion.img
+            src="your-photo.jpg"
+            alt="Your Photo"
+            className="w-40 h-40 rounded-full border-4 border-white shadow-lg mb-6"
+            whileHover={{ scale: 1.1 }}
+          />
+          <h1 className="text-4xl font-bold text-white mb-6">Lessons to Learn by 20s</h1>
+          <Card className="p-6 bg-white shadow-xl text-center rounded-2xl w-80">
+            <CardContent>
+              <motion.p
+                key={index}
+                className="text-lg font-medium text-gray-800"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+              >
+                {lessons[index]}
+              </motion.p>
+              <Button onClick={nextLesson} className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-xl">
+                Next Lesson
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    }
+    
+    <title>Tanvii's Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+        .highlight {
+            color: #fcd34d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tanvii</h1>
+        <p><strong>Role:</strong> SWE | Chairperson (ROTARACT) | SPOC for External Affairs</p>
+        
+        <div class="section">
+            <h2>About Me</h2>
+            <p>An enthusiastic manager, coder, and orator with a passion for research, debate, and event organization. Always striving for excellence in both technical and leadership domains.</p>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <ul>
+                <li>Chairperson - ROTARACT (Chandigarh)</li>
+                <li>Foreign Relations Coordinator - CAC</li>
+                <li>Discipline Coordinator - Central Event Cell (CEC)</li>
+                <li>Managed Convocation, Work Fit-Fiesta, and Film Gallery Events</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>Coding (DSA, Microcontrollers, HTML, CSS)</li>
+                <li>Research & Paper Writing</li>
+                <li>Event Management & Team Leadership</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Represented school in Chess (2015)</li>
+                <li>Active Badminton player</li>
+                <li>Public Speaker & Orator</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
