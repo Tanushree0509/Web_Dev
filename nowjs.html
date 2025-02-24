@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons to Learn by 20s</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        .lesson {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+        button {
+            background: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #feb47b;
+        }
+    </style>
+    <script>
+        let lessons = [
+            "Invest in Yourself: Learn new skills, read, and grow.",
+            "Health is Wealth: Take care of your body and mind.",
+            "Financial Literacy: Save, invest, and avoid debt.",
+            "Quality Over Quantity: Choose relationships wisely.",
+            "Failures Teach the Best Lessons: Keep moving forward.",
+            "Comparison is the Thief of Joy: Focus on your journey.",
+            "Time is Precious: Use it wisely.",
+            "Confidence is Key: Believe in yourself.",
+            "Network Smartly: Connections matter.",
+            "Enjoy the Process: Don’t rush life."
+        ];
+        let index = 0;
+        function nextLesson() {
+            index = (index + 1) % lessons.length;
+            document.getElementById("lesson").innerText = lessons[index];
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="C:\Users\HP\Pictures\Saved Pictures\IMG-20241203-WA0013.jpg" alt="my Photo">
+        <h1>Lessons to Learn by 20s</h1>
+        <p id="lesson" class="lesson">Invest in Yourself: Learn new skills, read, and grow.</p>
+        <button onclick="nextLesson()">Next Lesson</button>
+    </div>
+</body>
+</html>
+
