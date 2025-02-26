@@ -1,0 +1,41 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FaCity, FaHandsHelping, FaPhoneAlt } from "react-icons/fa";
+
+export default function NagarSeva() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <header className="text-center text-3xl font-bold text-blue-700">NagarSeva</header>
+      
+      <div className="grid md:grid-cols-3 gap-6 mt-6">
+        <Card>
+          <CardContent className="p-6 text-center">
+            <FaCity className="text-4xl text-blue-500 mx-auto" />
+            <h2 className="text-xl font-semibold mt-3">City Services</h2>
+            <p>Find and access municipal services easily.</p>
+            <Button className="mt-4">Explore</Button>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-6 text-center">
+            <FaHandsHelping className="text-4xl text-green-500 mx-auto" />
+            <h2 className="text-xl font-semibold mt-3">Raise a Request</h2>
+            <p>Report issues like sanitation, roads, water supply.</p>
+            <Button className="mt-4">Submit</Button>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-6 text-center">
+            <FaPhoneAlt className="text-4xl text-red-500 mx-auto" />
+            <h2 className="text-xl font-semibold mt-3">Contact Us</h2>
+            <p>Reach out for assistance & feedback.</p>
+            <Button className="mt-4">Get Help</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
