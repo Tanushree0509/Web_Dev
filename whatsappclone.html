@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 30%;
+            background: #f0f2f5;
+            border-right: 1px solid #ccc;
+            padding: 15px;
+        }
+        .contacts {
+            list-style: none;
+        }
+        .contact {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .contact:hover {
+            background: #e0e0e0;
+        }
+        .chat-window {
+            width: 70%;
+            background: #e5ddd5;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header, .chat-footer {
+            background: #075e54;
+            color: white;
+            padding: 15px;
+        }
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .message {
+            background: #dcf8c6;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Contacts</h2>
+        <ul class="contacts">
+            <li class="contact">User 1</li>
+            <li class="contact">User 2</li>
+            <li class="contact">User 3</li>
+        </ul>
+    </div>
+    <div class="chat-window">
+        <div class="chat-header">Chat with User 1</div>
+        <div class="chat-body">
+            <div class="message">Hello! How are you?</div>
+            <div class="message">I'm fine, thanks!</div>
+        </div>
+        <div class="chat-footer">Type a message...</div>
+    </div>
+</body>
+</html>

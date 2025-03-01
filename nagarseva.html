@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NagarSeva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div id="home" class="container">
+        <h1>Welcome to NagarSeva</h1>
+        <p>Your trusted partner in urban services.</p>
+    </div>
+    
+    <div id="services" class="container">
+        <h2>Our Services</h2>
+        <div class="card">Sanitation</div>
+        <div class="card">Water Supply</div>
+        <div class="card">Waste Management</div>
+    </div>
+    
+    <div id="contact" class="container">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
