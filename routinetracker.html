@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        h1 {
+            color: #333;
+        }
+        .routine {
+            margin: 10px 0;
+            padding: 15px;
+            background: #ffeb99;
+            border-radius: 5px;
+        }
+        .routine:nth-child(even) {
+            background: #a0e7e5;
+        }
+        button {
+            padding: 10px;
+            background: #ff758c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #d6496e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Routine Tracker 📅</h1>
+        <div class="routine">🌅 Morning Routine: 6:00 AM - 8:00 AM</div>
+        <div class="routine">💑 Boyfriend Talking Time: 9:00 PM - 10:00 PM</div>
+        <div class="routine">📚 Study Schedule: 4:00 PM - 6:00 PM</div>
+        <div class="routine">💼 Business Meeting: 2:00 PM - 3:00 PM</div>
+        <div class="routine">✨ Custom Slot: Add your own!</div>
+        <button onclick="alert('Feature Coming Soon!')">➕ Add New Routine</button>
+    </div>
+</body>
+</html>
