@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagar Seva - Grievance Redressal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>Nagar Seva - Smart Grievance Redressal</header>
+    <div class="container">
+        <div class="content">
+            <h2>File a Complaint</h2>
+            <form>
+                <label for="issue">Issue Type:</label>
+                <select id="issue" name="issue">
+                    <option value="road">Road Repair</option>
+                    <option value="water">Water Supply</option>
+                    <option value="garbage">Garbage Disposal</option>
+                </select>
+                <br><br>
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" rows="4" cols="50"></textarea>
+                <br><br>
+                <button class="btn" type="submit">Submit Complaint</button>
+            </form>
+        </div>
+        <div class="content">
+            <h2>Track Your Complaint</h2>
+            <input type="text" placeholder="Enter Complaint ID">
+            <button class="btn">Track</button>
+        </div>
+    </div>
+</body>
+</html>
