@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://assets.nflxext.com/ffe/siteui/vlv3/94fe0b95-d1b6-4b90-b073-678f3d00c2e0/9d9d8b6b-36d3-4a3e-b0ef-6f3b6170e4c4/IN-en-20230619-popsignuptwoweeks-perspective_alpha_website_large.jpg') no-repeat center center/cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+    .sign-in {
+      background: #e50914;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      top: 30%;
+      transform: translateY(-30%);
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .email-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .email-form input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 300px;
+      max-width: 90%;
+      border: none;
+      outline: none;
+    }
+
+    .email-form button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #e50914;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="overlay"></div>
+    <header>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="logo" alt="Netflix Logo">
+      <button class="sign-in">Sign In</button>
+    </header>
+    <div class="hero-content">
+      <h1>Unlimited movies, TV shows and more.</h1>
+      <h2>Watch anywhere. Cancel anytime.</h2>
+      <p>Ready to watch? Enter your email to create or restart your membership.</p>
+      <div class="email-form">
+        <input type="email" placeholder="Email address">
+        <button>Get Started &gt;</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
