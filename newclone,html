@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Clone</title>
+</head>
+<body>
+  <header>
+    <h1>GitHub</h1>
+    <nav>
+      <a href="#">Why GitHub?</a> |
+      <a href="#">Team</a> |
+      <a href="#">Enterprise</a> |
+      <a href="#">Explore</a> |
+      <a href="#">Marketplace</a> |
+      <a href="#">Pricing</a> |
+      <a href="#">Sign In</a> |
+      <a href="#">Sign Up</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Where the world builds software</h2>
+    <p>Millions of developers and companies build, ship, and maintain their software on GitHub — the largest and most advanced development platform in the world.</p>
+
+    <form>
+      <label>Username: <input type="text" name="username"></label><br><br>
+      <label>Email: <input type="email" name="email"></label><br><br>
+      <label>Password: <input type="password" name="password"></label><br><br>
+      <input type="submit" value="Sign Up for GitHub">
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GitHub, Inc.</p>
+    <a href="#">Terms</a> |
+    <a href="#">Privacy</a> |
+    <a href="#">Security</a> |
+    <a href="#">Status</a> |
+    <a href="#">Help</a>
+  </footer>
+</body>
+</html>
