@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Intro Table</title>
+  <style>
+    table {
+      width: 40%;
+      border-collapse: collapse;
+      margin: 50px auto;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    th {
+      background-color: #343a40;
+      color: white;
+      padding: 12px;
+      text-align: center;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    td:hover {
+      background-color: #d6e9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <table id="introTable">
+    <tr>
+      <th>My Introduction</th>
+    </tr>
+    <tr><td>Name: Tanushree Maurya</td></tr>
+    <tr><td>Profession: Product Manager Intern</td></tr>
+    <tr><td>Goal: Google APM Singapore</td></tr>
+    <tr><td>Hobby: Competitive Programming</td></tr>
+    <tr><td>Location: India</td></tr>
+  </table>
+
+  <script>
+    document.getElementById("introTable").addEventListener("click", function() {
+      window.open("https://github.com/Tanushree0509", "_blank");
+    });
+  </script>
+
+</body>
+</html>
