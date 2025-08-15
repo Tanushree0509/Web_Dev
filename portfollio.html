@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I Miss My Mother</title>
+  <style>
+    :root{
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827cc;      /* gray-900/80 */
+      --text: #e5e7eb;        /* gray-200 */
+      --muted: #9ca3af;       /* gray-400 */
+      --accent: #fca5a5;      /* rose-300 */
+      --accent-2:#fb7185;     /* rose-400 */
+      --ring:#fecaca;         /* rose-200 */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% 10%, #1f2937 0%, transparent 60%),
+                  radial-gradient(900px 600px at 10% 90%, #111827 0%, transparent 60%),
+                  linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 32px 16px;
+    }
+    .card{
+      width:min(780px, 100%);
+      background: linear-gradient(180deg, #0b1020d6, #0b1020d6),
+                  radial-gradient(800px 400px at 10% 10%, #1f2a3a88 0%, transparent 60%);
+      backdrop-filter: blur(8px);
+      border: 1px solid #ffffff14;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 60px #00000066;
+      position:relative;
+      overflow:hidden;
+      animation: fadeIn 700ms ease-out;
+    }
+    .glow{
+      position:absolute; inset:-2px; pointer-events:none;
+      background: radial-gradient(400px 200px at 0% 0%, #fb718533 0%, transparent 70%),
+                  radial-gradient(600px 300px at 100% 100%, #fca5a533 0%, transparent 70%);
+      filter: blur(20px);
+      opacity:.8;
+    }
+    h1{
+      margin: 4px 0 6px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .sub{
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: clamp(14px, 2.2vw, 16px);
+    }
+    .heart{
+      width: 60px; height: 60px; margin-bottom: 12px;
+      display:inline-block;
+      filter: drop-shadow(0 8px 14px #fb718533);
+      animation: beat 1.6s ease-in-out infinite;
+    }
+    .panel{
+      display:grid;
+      gap:16px;
+      grid-template-columns: 1fr;
+    }
+    blockquote{
+      margin:0; padding:18px 18px 18px 20px;
+      background: #111827bd;
+      border: 1px solid #ffffff12;
+      border-left: 4px solid var(--accent-2);
+      border-radius: 12px;
+      font-size: clamp(16px, 2.5vw, 18px);
+      line-height:1.7;
+    }
+    .hinglish{ color:#ffd5d5; font-weight:600 }
+
+    .memory{
+      background:#0b1020;
+      border:1px solid #ffffff1e;
+      border-radius:16px;
+      padding:16px;
+    }
+    label{ display:block; font-weight:600; margin-bottom:8px; color:#ffe4e6 }
+    textarea{
+      width:100%; min-height:130px; resize:vertical;
+      background:#0b1020; color:var(--text);
+      border:1px solid #ffffff2a; border-radius:12px;
+      padding:12px 14px; font-size:16px; line-height:1.6;
+      outline:none; transition: box-shadow .2s, border-color .2s;
+    }
+    textarea:focus{ border-color: var(--ring); box-shadow: 0 0 0 6px #fb71851f }
+
+    .footer{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap; margin-top:10px; color:var(--muted);
+      font-size:14px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px; border:1px solid #ffffff20; border-radius:999px;
+      background:#0b1020; color:#ffe4e6;
+    }
+    .btn{
+      appearance:none; border:1px solid #ffffff22; background:#111827; color:var(--text);
+      padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+      transition: transform .08s ease, background .2s ease, border-color .2s;
+    }
+    .btn:hover{ background:#161f33; border-color:#ffffff44 }
+    .btn:active{ transform: translateY(1px) }
+
+    @keyframes beat{
+      0%, 100% { transform: scale(1) }
+      25% { transform: scale(1.06) }
+      50% { transform: scale(1) }
+      75% { transform: scale(1.06) }
+    }
+    @keyframes fadeIn{
+      from{ opacity:0; transform: translateY(8px) }
+      to{ opacity:1; transform: translateY(0) }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="Page expressing that I miss my mother">
+    <div class="glow" aria-hidden="true"></div>
+
+    <!-- Heart icon -->
+    <svg class="heart" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21s-7.5-4.534-9.5-8.5C.5 8.5 3 5 6.5 5 8.7 5 10.3 6.1 12 8c1.7-1.9 3.3-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19.5 16.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.2" fill="url(#g)"/>
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#fb7185"/>
+          <stop offset="100%" stop-color="#fca5a5"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <h1>I miss my mother</h1>
+    <p class="sub">This page is a little bottle for my feelings — a place to write, breathe, and remember.</p>
+
+    <section class="panel">
+      <blockquote>
+        Dear <span class="hinglish">Maa</span>,
+        I miss your voice, your hands on my head, and the way home felt when you were around. Some days are heavy, some nights are quiet, but my love for you stays warm and constant. If love had footsteps, mine would always find their way back to you.
+      </blockquote>
+
+      <div class="memory" aria-label="Write your own message">
+        <label for="msg">Write your own words (edit freely):</label>
+        <textarea id="msg" placeholder="Type here… For example: Maa, aaj phir tumhari yaad aayi. Tumhari muskurahat, tumhari daant, sab yaad aata hai. I miss you so much.">Maa, I miss you every day — in the mornings when I wake up, in the evenings when the world quiets down, and in the spaces between my thoughts. Thank you for the love that still holds me together.</textarea>
+        <div class="footer">
+          <span class="badge" title="You can share or print this page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9V4h12v5M6 13H5a3 3 0 1 1 0-6h14a3 3 0 1 1 0 6h-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            I miss you, Maa
+          </span>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button class="btn" onclick="window.print()" aria-label="Print this page">Print</button>
+            <button class="btn" onclick="downloadHTML()" aria-label="Download this page as HTML">Download</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Simple "download this page" helper so you can save your words.
+    function downloadHTML(){
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'i-miss-my-mother.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
