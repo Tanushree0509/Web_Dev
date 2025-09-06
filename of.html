@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internship Offer Letter — Google (Template)</title>
+  <style>
+    :root{
+      --ink:#0f172a;          /* slate-900 */
+      --muted:#475569;        /* slate-600 */
+      --bg:#f8fafc;           /* slate-50 */
+      --card:#ffffff;         /* white */
+      --line:#e2e8f0;         /* slate-200 */
+      --accent:#1a73e8;       /* Google-ish blue */
+      --success:#16a34a;      /* green */
+      --warn:#eab308;         /* amber */
+      --danger:#dc2626;       /* red */
+    }
+    html,body{height:100%;}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;}
+
+    /* Page shell */
+    .wrap{max-width:980px;margin:40px auto;padding:24px;}
+    .letter{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 30px rgba(2,6,23,.06);overflow:hidden;}
+
+    /* Branded header (text-only, no logos) */
+    .brand{display:flex;align-items:center;gap:16px;padding:22px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff, #fbfdff 60%);}    
+    .brand .g{
+      font-weight:900;font-size:24px;letter-spacing:.2px;display:flex;gap:2px;align-items:flex-end
+    }
+    .g span:nth-child(1){color:#4285F4}
+    .g span:nth-child(2){color:#EA4335}
+    .g span:nth-child(3){color:#FBBC05}
+    .g span:nth-child(4){color:#34A853}
+    .brand small{color:var(--muted)}
+
+    /* Content */
+    .content{padding:28px;}
+    h1{font-size:28px;margin:0 0 6px}
+    .sub{color:var(--muted);margin:0 0 24px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef6ff;color:#0b57d0;font-weight:600;font-size:12px;border:1px solid #dbeafe}
+
+    /* Offer table */
+    .kv{width:100%;border-collapse:collapse;margin:8px 0 4px}
+    .kv th,.kv td{padding:10px 12px;border-bottom:1px dashed var(--line);text-align:left}
+    .kv th{color:var(--muted);font-weight:600;width:36%}
+    .kv tr:last-child th,.kv tr:last-child td{border-bottom:none}
+
+    /* Timeline */
+    .timeline{list-style:none;padding:0;margin:0}
+    .timeline li{position:relative;padding:12px 12px 12px 28px;border-left:3px solid var(--line)}
+    .timeline li:before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 3px #e7f0fe}
+
+    /* Footer actions */
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    button{appearance:none;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer}
+    .primary{background:var(--accent);color:#fff}
+    .ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .danger{background:var(--danger);color:#fff}
+    .lite{background:#f1f5f9;color:#0b57d0;border:1px dashed #dbeafe}
+
+    /* Effort meter */
+    .meter{height:12px;background:#eef2f7;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+    .meter > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#34A853,#4285F4 60%);transition:width .9s cubic-bezier(.2,.7,0,1)}
+
+    /* Toast */
+    .toast{position:fixed;inset:auto 20px 20px auto;background:#0b57d0;color:#fff;padding:12px 14px;border-radius:12px;box-shadow:0 12px 30px rgba(2,6,23,.18);opacity:0;transform:translateY(10px);pointer-events:none}
+    .toast.show{opacity:1;transform:none;transition:all .28s ease}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;place-items:center;padding:20px}
+    .modal.on{display:grid}
+    .modal > .modal-card{max-width:640px;width:100%;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(2,6,23,.3);overflow:hidden}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+    .modal-body{padding:16px}
+
+    /* Print styles */
+    @media print{
+      .actions,.confetti,.toast,.modal,.lite{display:none!important}
+      body{background:#fff}
+      .wrap{margin:0;padding:0}
+      .letter{box-shadow:none;border:0}
+      .brand{border-bottom:2px solid #111}
+    }
+  </style>
+</head>
+<body>
+  <!-- confetti canvas -->
+  <canvas class="confetti" id="confetti" style="position:fixed;inset:0;pointer-events:none;z-index:10"></canvas>
+
+  <div class="wrap">
+    <article class="letter" aria-label="Offer letter">
+      <header class="brand">
+        <div class="g" aria-label="Brand wordmark">
+          <span>G</span><span>o</span><span>o</span><span>gle</span>
+        </div>
+        <small>Talent & Staffing — Internship Programs</small>
+        <span class="pill" style="margin-left:auto">Offer Letter — Template</span>
+      </header>
+
+      <section class="content">
+        <h1>Internship Offer — <span id="role">Product Management Intern</span></h1>
+        <p class="sub" id="today">Date: <!-- injected by JS --></p>
+
+        <p>
+          Dear <strong id="candidate">Tanushree Maurya</strong>,
+        </p>
+        <p>
+          We are delighted to extend to you an offer to join <strong>Google</strong> as a <strong id="role2">Product Management Intern</strong> within our <strong id="org">Search & GenAI</strong> organization in <strong id="location">Singapore</strong>.
+          Your interview panel consistently highlighted your clarity of thought, bias for action, and product vision. We believe you will contribute at the <em>highest level of impact</em> across our internship cohort.
+        </p>
+
+        <div class="grid" style="margin:16px 0 8px">
+          <div class="card" role="region" aria-label="Offer Details">
+            <h3 style="margin:0 0 10px">Offer Snapshot</h3>
+            <table class="kv" aria-describedby="Offer key values">
+              <tr>
+                <th>Program</th>
+                <td><span id="program">Summer Internship 2026</span> (12 weeks)</td>
+              </tr>
+              <tr>
+                <th>Stipend</th>
+                <td><strong id="stipend">₹3,00,000</strong> per month</td>
+              </tr>
+              <tr>
+                <th>Joining Bonus</th>
+                <td><span id="bonus">₹1,50,000</span> (one‑time)</td>
+              </tr>
+              <tr>
+                <th>Relocation & Housing</th>
+                <td id="relocation">Company‑paid relocation + housing assistance</td>
+              </tr>
+              <tr>
+                <th>Reporting To</th>
+                <td id="reporting">Priya Sharma, Group PM — Search</td>
+              </tr>
+              <tr>
+                <th>Start Date</th>
+                <td id="start">May 12, 2026</td>
+              </tr>
+            </table>
+
+            <div style="margin-top:12px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <strong>Our Effort for You</strong>
+                <small class="muted">panel time, mentoring bandwidth, custom itinerary</small>
+              </div>
+              <div class="meter" aria-label="Effort meter"><i id="effortBar"></i></div>
+              <small id="effortLabel" class="muted" style="display:block;margin-top:6px;color:var(--muted)">Calibrating…</small>
+            </div>
+          </div>
+
+          <div class="card" role="region" aria-label="Your Onboarding Itinerary">
+            <h3 style="margin:0 0 10px">Onboarding Itinerary</h3>
+            <ul class="timeline" id="itinerary">
+              <li><strong>Offer Acceptance</strong> — within 7 days of this letter</li>
+              <li><strong>Pre‑internship PM Bootcamp</strong> — Apr 22–26, 2026 (virtual)</li>
+              <li><strong>Relocation & Housing Setup</strong> — May 5–9, 2026</li>
+              <li><strong>Day 1 Orientation</strong> — May 12, 2026</li>
+              <li><strong>Mentor Match & OKRs</strong> — Week 1</li>
+            </ul>
+            <div class="actions">
+              <button class="lite" id="addItem">+ Add Item</button>
+              <button class="ghost" id="viewNotes">Hiring Committee Notes</button>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin:18px 0 8px">Terms & Expectations</h3>
+        <p>
+          This internship is a full‑time, fixed‑term engagement. You will be eligible for intern benefits including health coverage, meals, and learning budgets. Your internship is contingent on standard background checks and your continued academic enrollment in good standing.
+        </p>
+
+        <p>
+          Please indicate your decision by clicking <em>Accept Offer</em> or <em>Decline</em>. You may download/print a PDF copy of this letter for your records.
+        </p>
+
+        <div class="actions">
+          <button class="primary" id="accept">Accept Offer</button>
+          <button class="danger" id="decline">Decline</button>
+          <button class="ghost" id="print">Download / Print PDF</button>
+          <button class="ghost" id="copy">Copy Letter Text</button>
+          <button class="lite" id="edit">Quick Edit Fields</button>
+        </div>
+
+        <p style="margin-top:24px">Sincerely,<br/>
+          <strong>Google Internship Programs</strong><br/>
+          Talent & Staffing
+        </p>
+
+      </section>
+    </article>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard ✓</div>
+
+  <!-- Modal for notes / quick edit -->
+  <div class="modal" id="modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <div class="modal-head">
+        <strong id="mTitle">Hiring Committee Notes</strong>
+        <button class="ghost" id="closeModal" aria-label="Close">Close</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <p><em>Highlights</em>: Strong product sense, high ownership, data‑first reasoning, leadership in ambiguity. Recommended for stretch OKRs. Mentors volunteered additional bandwidth.</p>
+        <hr style="border:none;border-top:1px solid var(--line);margin:12px 0"/>
+        <h4 style="margin:8px 0 6px">Quick Edit</h4>
+        <div class="grid">
+          <label class="card">Candidate Name<br><input id="fCandidate" class="in" /></label>
+          <label class="card">Role<br><input id="fRole" class="in" /></label>
+          <label class="card">Org<br><input id="fOrg" class="in" /></label>
+          <label class="card">Location<br><input id="fLocation" class="in" /></label>
+          <label class="card">Stipend<br><input id="fStipend" class="in" /></label>
+          <label class="card">Start Date<br><input id="fStart" class="in" /></label>
+        </div>
+        <div class="actions" style="margin-top:12px">
+          <button class="primary" id="applyEdits">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Helpers
+    const $ = (s,sc)=> (sc||document).querySelector(s);
+    const $$ = (s,sc)=> (sc||document).querySelectorAll(s);
+
+    // Today
+    const d = new Date();
+    $('#today').textContent = `Date: ${d.toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'})}`;
+
+    // Effort meter animation ("their efforts for me")
+    const effortBar = $('#effortBar');
+    const effortLabel = $('#effortLabel');
+    let effort = 0;
+    function tickEffort(){
+      const target = 92 + Math.floor(Math.random()*5); // shows high effort 92–96%
+      const id = setInterval(()=>{
+        effort = Math.min(target, effort + 1);
+        effortBar.style.width = effort + '%';
+        effortLabel.textContent = `Calibrated at ${effort}% — priority cohort support`;
+        if(effort>=target) clearInterval(id);
+      }, 18);
+    }
+    setTimeout(tickEffort, 400);
+
+    // Itinerary: add item
+    $('#addItem').addEventListener('click', ()=>{
+      const text = prompt('Add an itinerary entry (e.g., "Mid‑intern demo — Week 6")');
+      if(!text) return;
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${text.split(' — ')[0]}</strong>${text.includes(' — ')?' — '+text.split(' — ').slice(1).join(' — '):''}`;
+      $('#itinerary').appendChild(li);
+    });
+
+    // Modal
+    const modal = $('#modal');
+    $('#viewNotes').addEventListener('click', ()=>{ modal.classList.add('on'); });
+    $('#closeModal').addEventListener('click', ()=>{ modal.classList.remove('on'); });
+
+    // Quick edit fields
+    const fields = {
+      candidate:['#candidate','#fCandidate'],
+      role:['#role','#fRole','#role2'],
+      org:['#org','#fOrg'],
+      location:['#location','#fLocation'],
+      stipend:['#stipend','#fStipend'],
+      start:['#start','#fStart']
+    };
+    // seed inputs from DOM
+    for(const [k,[sel,inpSel]] of Object.entries(fields)){
+      const t = $(sel).textContent.trim();
+      const inp = $(inpSel);
+      if(inp) inp.value = t;
+    }
+    $('#edit').addEventListener('click', ()=>{ modal.classList.add('on'); $('#mTitle').textContent='Quick Edit'; });
+    $('#applyEdits').addEventListener('click', ()=>{
+      for(const [k, sels] of Object.entries(fields)){
+        const domSel = sels.filter(s=>s.startsWith('#'))[0];
+        const inpSel = sels.find(s=>s.startsWith('#f'));
+        const val = $(inpSel).value || $(domSel).textContent;
+        // update all targets for this field
+        sels.filter(s=>!s.startsWith('#f')).forEach(s=>{ $(s).textContent = val; });
+      }
+      modal.classList.remove('on');
+    });
+
+    // Copy letter text
+    $('#copy').addEventListener('click', async ()=>{
+      const txt = document.querySelector('.content').innerText;
+      await navigator.clipboard.writeText(txt);
+      toast('Copied to clipboard ✓');
+    });
+
+    // Print / PDF
+    $('#print').addEventListener('click', ()=> window.print());
+
+    // Accept / Decline
+    $('#accept').addEventListener('click', ()=>{
+      toast('Offer accepted — welcome aboard! 🎉');
+      burstConfetti();
+    });
+    $('#decline').addEventListener('click', ()=>{
+      toast('Offer declined — decision saved.');
+    });
+
+    // Toast helper
+    const t = $('#toast');
+    function toast(msg){
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(()=> t.classList.remove('show'), 1600);
+    }
+
+    // --- Lightweight confetti (no libs)
+    const c = document.getElementById('confetti');
+    const ctx = c.getContext('2d');
+    let W,H; function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+
+    const pieces = [];
+    function spawn(n=150){
+      for(let i=0;i<n;i++){
+        pieces.push({
+          x: Math.random()*W,
+          y: -20 - Math.random()*H*0.5,
+          r: 4+Math.random()*6,
+          vx: -1+Math.random()*2,
+          vy: 2+Math.random()*3,
+          rot: Math.random()*Math.PI,
+          vr: -0.1+Math.random()*0.2,
+          hue: [210,2,45,120][i%4], // blue, red, yellow-ish, green-ish
+          life: 200 + Math.random()*120
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(const p of pieces){
+        p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.vy += 0.02; p.life -= 1;
+        ctx.save();
+        ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+        ctx.fillStyle = `hsl(${p.hue} 90% 55%)`;
+        ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);
+        ctx.restore();
+      }
+      for(let i=pieces.length-1;i>=0;i--) if(pieces[i].life<=0 || pieces[i].y>H+20) pieces.splice(i,1);
+      requestAnimationFrame(draw);
+    }
+    function burstConfetti(){ spawn(200); setTimeout(()=>spawn(120),180); setTimeout(()=>spawn(100),360); }
+    draw();
+
+    // URL query prefill (?name=...&role=...)
+    const q = new URLSearchParams(location.search);
+    if(q.size){
+      const map = {name:'#candidate', role:'#role', org:'#org', location:'#location', stipend:'#stipend', start:'#start'};
+      for(const [k,sel] of Object.entries(map)) if(q.get(k)) $(sel).textContent = q.get(k);
+      if(q.get('role')) $('#role2').textContent = q.get('role');
+    }
+
+    // Accessibility: ESC to close modal
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') modal.classList.remove('on'); });
+
+    // Note: This is a personal, non-official template for portfolios/demos.
+  </script>
+</body>
+</html>
