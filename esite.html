@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Store Filter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      color: #222;
+      text-shadow: 2px 2px #f7f7f7;
+      font-size: 2.2em;
+    }
+
+    select {
+      padding: 12px 18px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin: 20px 0;
+      background: #fff;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    select:hover {
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    li {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      width: 180px;
+      font-weight: bold;
+      color: #444;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    li:hover {
+      transform: translateY(-6px);
+      background: #fcefee;
+    }
+  </style>
+</head>
+<body>
+  <h1>👗 Fashion Store Filter</h1>
+
+  <!-- Dropdown Menu -->
+  <label for="category"><strong>Choose a category:</strong></label>
+  <select id="category">
+    <option value="all">All</option>
+    <option value="shoes">Shoes</option>
+    <option value="shirts">Shirts</option>
+    <option value="skirts">Skirts</option>
+  </select>
+
+  <!-- List of items -->
+  <ul id="items">
+    <li data-category="shoes">👟 Sneakers</li>
+    <li data-category="shoes">👠 High Heels</li>
+    <li data-category="shirts">👕 T-Shirt</li>
+    <li data-category="shirts">👔 Formal Shirt</li>
+    <li data-category="skirts">👗 Mini Skirt</li>
+    <li data-category="skirts">🩱 Long Skirt</li>
+  </ul>
+
+  <script>
+    // Get dropdown and item list
+    const categorySelect = document.getElementById("category");
+    const items = document.querySelectorAll("#items li");
+
+    // Add event listener when dropdown changes
+    categorySelect.addEventListener("change", function () {
+      const selected = this.value;
+
+      items.forEach(item => {
+        if (selected === "all" || item.dataset.category === selected) {
+          item.style.display = "block"; // Show item
+        } else {
+          item.style.display = "none"; // Hide item
+        }
+      });
+    });
+  </script>
+</body>
+</html>

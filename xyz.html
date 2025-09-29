@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .product{border:1px solid #ccc;padding:10px;margin:5px;display:inline-block;}
+  </style>
+</head>
+<body>
+  <h2>Products</h2>
+  <select id="filter">
+    <option value="All">All</option>
+    <option value="Category1">Category 1</option>
+    <option value="Category2">Category 2</option>
+    <option value="Category3">Category 3</option>
+  </select>
+
+  <div class="product" data-category="Category1">Shoes</div>
+  <div class="product" data-category="Category2">Shirt</div>
+  <div class="product" data-category="Category3">Phone</div>
+  <div class="product" data-category="Category1">Sneakers</div>
+
+  <script>
+    document.getElementById('filter').addEventListener('change',function(){
+      let val=this.value;
+      document.querySelectorAll('.product').forEach(p=>{
+        p.style.display=(val==="All"||p.dataset.category===val)?"inline-block":"none";
+      });
+    });
+  </script>
+</body>
+</html>
